@@ -10,35 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Message = void 0;
-var typeorm_1 = require("typeorm");
-var User_1 = require("./User");
-var Chat_1 = require("./Chat");
-var Message = /** @class */ (function () {
-    function Message() {
-    }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Message.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)("text"),
-        __metadata("design:type", String)
-    ], Message.prototype, "text", void 0);
-    __decorate([
-        (0, typeorm_1.Column)("timestamp"),
-        __metadata("design:type", Date)
-    ], Message.prototype, "timestamp", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return User_1.User; }, function (user) { return user.messages; }),
-        __metadata("design:type", User_1.User)
-    ], Message.prototype, "user", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return Chat_1.Chat; }, function (chat) { return chat.messages; }),
-        __metadata("design:type", Chat_1.Chat)
-    ], Message.prototype, "chat", void 0);
-    Message = __decorate([
-        (0, typeorm_1.Entity)()
-    ], Message);
-    return Message;
-}());
+const typeorm_1 = require("typeorm");
+const User_1 = require("./User");
+const Chat_1 = require("./Chat");
+let Message = class Message {
+    id;
+    text;
+    timestamp;
+    user;
+    chat;
+};
 exports.Message = Message;
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Message.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)("text"),
+    __metadata("design:type", String)
+], Message.prototype, "text", void 0);
+__decorate([
+    (0, typeorm_1.Column)("timestamp"),
+    __metadata("design:type", Date)
+], Message.prototype, "timestamp", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => User_1.User, (user) => user.messages),
+    __metadata("design:type", User_1.User)
+], Message.prototype, "user", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => Chat_1.Chat, (chat) => chat.messages),
+    __metadata("design:type", Chat_1.Chat)
+], Message.prototype, "chat", void 0);
+exports.Message = Message = __decorate([
+    (0, typeorm_1.Entity)()
+], Message);

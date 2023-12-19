@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "target": "es2022",
+    "module": "commonjs",
     "allowJs": true,
     "outDir": "./build",
     "strict": true,

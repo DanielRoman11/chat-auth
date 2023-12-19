@@ -6,7 +6,7 @@ import { Message } from "../entity/Message";
 export const AppDataSource = new DataSource({
   type: "mongodb",
   url: process.env.MONGODB_URI,
-  host: process.env.DB_HOST,
+  // host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   database: process.env.DB_NAME,
   synchronize: true,
@@ -14,3 +14,9 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
+AppDataSource.initialize().then(()=>{
+  console.log("DB CONN");
+}).catch(err =>{
+  console.log(err);
+})

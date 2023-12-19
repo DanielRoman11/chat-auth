@@ -10,42 +10,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-var typeorm_1 = require("typeorm");
-var Chat_1 = require("./Chat");
-var User = /** @class */ (function () {
-    function User() {
-    }
-    __decorate([
-        (0, typeorm_1.PrimaryColumn)(),
-        __metadata("design:type", String)
-    ], User.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)({ length: 20 }),
-        __metadata("design:type", String)
-    ], User.prototype, "username", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "email", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "password", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "avatarUrl", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return Chat_1.Chat; }, function (chat) { return chat.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "chats", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return Chat_1.Chat; }, function (message) { return message.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "messages", void 0);
-    User = __decorate([
-        (0, typeorm_1.Entity)()
-    ], User);
-    return User;
-}());
+const typeorm_1 = require("typeorm");
+const Chat_1 = require("./Chat");
+let User = class User {
+    id;
+    username;
+    email;
+    password;
+    avatarUrl;
+    chats;
+    messages;
+};
 exports.User = User;
+__decorate([
+    (0, typeorm_1.PrimaryColumn)(),
+    __metadata("design:type", String)
+], User.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ length: 20 }),
+    __metadata("design:type", String)
+], User.prototype, "username", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "email", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "avatarUrl", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Chat_1.Chat, (chat) => chat.user),
+    __metadata("design:type", Array)
+], User.prototype, "chats", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Chat_1.Chat, (message) => message.user),
+    __metadata("design:type", Array)
+], User.prototype, "messages", void 0);
+exports.User = User = __decorate([
+    (0, typeorm_1.Entity)()
+], User);

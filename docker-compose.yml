@@ -15,9 +15,11 @@ services:
     ports: 
       - 3000:3000
     environment:
-      DB_PORT: 3000
-      MONGODB_URI: mongodb://db_container:27017
+      DB_PORT: 27017
       DB_NAME: chattest
+      MONGODB_URI: mongodb://db_container:27017
+    links:
+      - mongo_db
     depends_on:
       - mongo_db
     

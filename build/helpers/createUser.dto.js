@@ -10,31 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUserDTO = void 0;
-var class_validator_1 = require("class-validator");
-var CreateUserDTO = /** @class */ (function () {
-    function CreateUserDTO() {
-    }
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        __metadata("design:type", String)
-    ], CreateUserDTO.prototype, "id", void 0);
-    __decorate([
-        (0, class_validator_1.IsString)(),
-        (0, class_validator_1.Length)(5, 20),
-        __metadata("design:type", String)
-    ], CreateUserDTO.prototype, "username", void 0);
-    __decorate([
-        (0, class_validator_1.IsEmail)(),
-        __metadata("design:type", String)
-    ], CreateUserDTO.prototype, "email", void 0);
-    __decorate([
-        (0, class_validator_1.IsStrongPassword)({ minLength: 5, minNumbers: 2 }),
-        __metadata("design:type", String)
-    ], CreateUserDTO.prototype, "password", void 0);
-    __decorate([
-        (0, class_validator_1.IsUrl)(),
-        __metadata("design:type", String)
-    ], CreateUserDTO.prototype, "avatarUrl", void 0);
-    return CreateUserDTO;
-}());
+const class_validator_1 = require("class-validator");
+class CreateUserDTO {
+    id;
+    username;
+    email;
+    password;
+    avatarUrl;
+}
 exports.CreateUserDTO = CreateUserDTO;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateUserDTO.prototype, "id", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(5, 20),
+    __metadata("design:type", String)
+], CreateUserDTO.prototype, "username", void 0);
+__decorate([
+    (0, class_validator_1.IsEmail)(),
+    __metadata("design:type", String)
+], CreateUserDTO.prototype, "email", void 0);
+__decorate([
+    (0, class_validator_1.IsStrongPassword)({ minLength: 5, minNumbers: 2 }),
+    __metadata("design:type", String)
+], CreateUserDTO.prototype, "password", void 0);
+__decorate([
+    (0, class_validator_1.IsUrl)(),
+    __metadata("design:type", String)
+], CreateUserDTO.prototype, "avatarUrl", void 0);
