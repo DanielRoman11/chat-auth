@@ -1,19 +1,26 @@
-version: '3.7'
-services:
-  mongodb_container:
-    image: mongo:1-18-alpine3.18
-  
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb_data_container:/data/db
-  
-  adminer:
-    image: adminer:latest
-    container_name: adminer
-    restart: always
-    ports:
-      - 7777:8080
+version: '3.9'
 
+services: 
+  # MongoDB services
+  mongo_db: 
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+
+  # NodeJs API Service
+  api:
+    build: .
+    ports: 
+      - 3000:3000
+    environment:
+      DB_PORT: 3000
+      MONGODB_URI: mongodb://db_container:27017
+      DB_NAME: chattest
+    depends_on:
+      - mongo_db
+    
 volumes:
-  mongodb_data_container:
+  mongo_db: {}
+
