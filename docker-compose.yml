@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  mongodb_container:
+    image: mongo:1-18-alpine3.18
+  
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+  
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    restart: always
+    ports:
+      - 7777:8080
+
+volumes:
+  mongodb_data_container:
