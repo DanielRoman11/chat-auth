@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:build":"node --env-file=.env build/index.js",
     "watch-ts": "pnpm tsc -w",
     "watch-js": "node --env-file=.env build/index.js -w",
-    "start:dev": "concurrently \"pnpm:watch-ts\" \"pnpm:watch-js\""
+    "start:dev": "concurrently \"pnpm:watch-ts\" \"pnpm:watch-js\"",
+    "start:build":"node --env-file=.env build/index.js"
   },
   "keywords": [],
   "author": "Daniel Román",
